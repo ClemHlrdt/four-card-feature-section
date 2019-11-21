@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,400,600&display=swap");
+
+:root {
+  /* Media queries */
+  --mobile: 375px;
+  --desktop: 1440px;
+
+  /* Colors */
+
+  /*Primary */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  /* Neutral */
+  --dark-blue: hsl(234, 12%, 34%);
+  --greyish-blue: hsl(229, 6%, 66%);
+
+  /* Typography */
+  --body-size: 15px;
+
+  --light: 200;
+  --medium: 400;
+  --bold: 600;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+}
+
+.wrapper {
+  margin: 2rem auto 1rem;
+  padding: 1.25rem;
+  max-width: var(--mobile);
+}
+
+header.top {
+  font-size: 1.5rem;
+  font-weight: var(--light);
+  color: var(--greyish-blue);
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+header.top > h1 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+header.top > p {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.bold {
+  color: var(--dark-blue);
+  font-weight: var(--bold);
+}
+
+section.container {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 2.2rem auto;
+  padding: 1.75rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: -2px 18px 25px -13px var(--greyish-blue);
+  font-weight: var(--light);
+  color: var(--greyish-blue);
+}
+
+section.container > h3 {
+  color: var(--dark-blue);
+  font-weight: var(--bold);
+  font-size: 1.5rem;
+}
+
+section.container > p {
+  display: inline-block;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+img {
+  width: 3.5rem;
+  height: auto;
+  align-self: flex-end;
+}
+
+.supervisor {
+  border-top: 4px solid var(--cyan);
+}
+
+.team {
+  border-top: 4px solid var(--red);
+}
+
+.karma {
+  border-top: 4px solid var(--orange);
+}
+
+.calculator {
+  border-top: 4px solid var(--blue);
+}
+
+footer {
+  position: relative;
+  top: 100px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 940px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: var(--desktop);
+    padding: 5rem;
+    padding-top: 1.5rem;
+    justify-items: center;
+  }
+
+  header.top {
+    width: 50%;
+    margin: 0 auto 2.5rem;
+  }
+
+  header.top > h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      ". team ."
+      "supervisor team calculator"
+      "supervisor karma calculator"
+      ". karma .";
+  }
+
+  .team {
+    grid-area: team;
+  }
+
+  .supervisor {
+    grid-area: supervisor;
+  }
+
+  .calculator {
+    grid-area: calculator;
+  }
+  .karma {
+    grid-area: karma;
+  }
+
+  section.container {
+    max-width: 360px;
+    margin: 1rem;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  section.container > h3 {
+    font-size: 1rem;
+  }
+
+  section.container > p {
+    font-size: var(--body-size);
+  }
+}
